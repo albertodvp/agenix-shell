@@ -207,6 +207,7 @@ in {
             fi
 
             ${createSecretsPath}
+            export AGENIX_SHELL_SECRETS_PATH=$__agenix_shell_secrets_path
           ''
           + lib.concatStrings (lib.mapAttrsToList config.agenix-shell._installSecret cfg.secrets)
           + (lib.optionalString (!isDarwin) ''
